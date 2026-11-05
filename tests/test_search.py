@@ -39,9 +39,14 @@ class TestDocumentLoader(unittest.TestCase):
         """At least one document should be loaded from the documents directory."""
         self.assertGreater(len(self.docs), 0, "No documents loaded.")
 
-    def test_five_documents_present(self):
-        """Exactly five sample documents should be present."""
-        self.assertEqual(len(self.docs), 5)
+    def test_twenty_documents_present(self):
+        """The sample collection should contain twenty documents."""
+        self.assertEqual(len(self.docs), 20)
+
+    def test_documents_follow_natural_filename_order(self):
+        """Document IDs should match the natural filename sequence."""
+        filenames = [metadata['filename'] for metadata in self.docs.values()]
+        self.assertEqual(filenames, [f'doc{number}.txt' for number in range(1, 21)])
 
     def test_document_ids_assigned(self):
         """Each document should have a DOC<n> identifier."""

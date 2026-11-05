@@ -54,7 +54,7 @@ print("=" * 60)
 @app.route('/')
 def home():
     """Serve the main search GUI."""
-    return render_template('index.html')
+    return render_template('index.html', document_count=len(documents))
 
 
 @app.route('/search', methods=['POST'])
@@ -101,7 +101,8 @@ def index_info():
                 'char_count': meta.get('char_count', 0),
                 'is_empty': meta.get('is_empty', False)
             }
-            for doc_id, meta in sorted(documents.items())
+            # DocumentLoader inserts files in natural filename order (DOC1, DOC2, …, DOC20).
+            for doc_id, meta in documents.items()
         ]
     })
 

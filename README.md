@@ -43,12 +43,11 @@ WSM_Assignment/
 │   ├── query_processor.py      # Module 5: Query processing (Boolean)
 │   └── wildcard_processor.py   # Module 6: Wildcard query handling
 │
-├── documents/                  # Sample text corpus
-│   ├── doc1.txt                # Python programming
-│   ├── doc2.txt                # Information retrieval
-│   ├── doc3.txt                # Search engines
-│   ├── doc4.txt                # Data structures
-│   └── doc5.txt                # Machine learning
+├── documents/                  # 20 sample text documents
+│   ├── doc1.txt – doc5.txt      # Python, retrieval, search, data structures, machine learning
+│   ├── doc6.txt – doc10.txt     # Crawling, ranking, Boolean search, databases, tokenization
+│   ├── doc11.txt – doc15.txt    # NLP, learning, semantic search, data structures, graph algorithms
+│   └── doc16.txt – doc20.txt    # Evaluation, distributed search, query expansion, libraries, accessibility
 │
 ├── templates/
 │   └── index.html              # Frontend HTML template

@@ -107,12 +107,11 @@ WSM_Assignment/
 │   ├── query_processor.py      # Module 5: Query processing
 │   └── wildcard_processor.py   # Module 6: Wildcard handling
 │
-├── documents/                  # Corpus (5 sample documents)
-│   ├── doc1.txt                # Python programming
-│   ├── doc2.txt                # Information retrieval
-│   ├── doc3.txt                # Search engines
-│   ├── doc4.txt                # Data structures
-│   └── doc5.txt                # Machine learning
+├── documents/                  # Corpus (20 sample documents)
+│   ├── doc1.txt – doc5.txt      # Python, information retrieval, search, data structures, ML
+│   ├── doc6.txt – doc10.txt     # Crawling, ranking, Boolean search, databases, tokenization
+│   ├── doc11.txt – doc15.txt    # NLP, machine learning, semantic search, graphs
+│   └── doc16.txt – doc20.txt    # Evaluation, distributed search, query expansion, libraries, accessibility
 │
 ├── templates/
 │   └── index.html              # Frontend template
@@ -122,7 +121,7 @@ WSM_Assignment/
 │   └── script.js               # Frontend logic
 │
 ├── tests/
-│   └── test_search.py          # 38 automated test cases
+│   └── test_search.py          # 39 automated test cases
 │
 ├── requirements.txt            # Dependencies
 ├── README.md                   # Project documentation
@@ -289,7 +288,7 @@ Result:      {"DOC1"}  (documents containing both terms)
 
 ## 7. Sample Dataset
 
-Five documents covering overlapping topics to enable Boolean and wildcard testing:
+Twenty documents cover overlapping topics to enable Boolean and wildcard testing:
 
 | Document | Topic | Key Terms |
 |----------|-------|-----------|
@@ -298,29 +297,43 @@ Five documents covering overlapping topics to enable Boolean and wildcard testin
 | doc3.txt | Search Engines | search, engines, web, crawl, internet, query, ranking, wildcard |
 | doc4.txt | Data Structures | data, structures, hash, search, algorithms, computer, internet |
 | doc5.txt | Machine Learning | machine, learning, classification, python, search, text, information |
+| doc6.txt | Web Crawling | crawler, pages, links, indexing, retrieval |
+| doc7.txt | Search Ranking | relevance, query, TF-IDF, PageRank |
+| doc8.txt | Boolean Retrieval | AND, OR, NOT, postings, wildcard |
+| doc9.txt | Database Indexes | B-tree, hash tables, inverted index, query |
+| doc10.txt | Tokenization | tokens, normalization, case folding, search |
+| doc11.txt | Natural Language Processing | text, classification, information extraction |
+| doc12.txt | Machine Learning | training, classification, Python, retrieval |
+| doc13.txt | Semantic Search | embeddings, vectors, query, documents |
+| doc14.txt | Data Structures | arrays, stacks, queues, hash tables, graphs |
+| doc15.txt | Graph Algorithms | vertices, edges, PageRank, search |
+| doc16.txt | Retrieval Evaluation | precision, recall, ranking, query |
+| doc17.txt | Distributed Search | shards, index, retrieval, documents |
+| doc18.txt | Query Expansion | synonyms, relevance, search, retrieval |
+| doc19.txt | Digital Libraries | metadata, documents, index, query |
+| doc20.txt | Accessible Search Interfaces | query, documents, responsive interface |
 
 **Term Overlap Examples:**
-- "python" → DOC1, DOC5
-- "search" → DOC1, DOC2, DOC3, DOC4, DOC5
-- "information" → DOC2, DOC3, DOC5
-- "internet" → DOC3, DOC4
-- "computer" → DOC1, DOC3, DOC4
+- "python" → DOC1, DOC5, DOC6, DOC12
+- "PageRank" → DOC7, DOC15
+- "query" → appears across retrieval, ranking, and interface documents
+- "search" and "retrieval" recur across several different topics
 
 ---
 
 ## 8. Test Results
 
-The project includes **38 automated test cases** organized into 6 test classes:
+The project includes **39 automated test cases** organized into 6 test classes:
 
 | Test Class | Module Tested | Tests | Status |
 |------------|---------------|-------|--------|
-| TestDocumentLoader | Document Loading | 6 | ✅ All Pass |
+| TestDocumentLoader | Document Loading | 7 | ✅ All Pass |
 | TestTokenizer | Tokenization | 6 | ✅ All Pass |
 | TestNormalizer | Case Folding | 6 | ✅ All Pass |
 | TestInvertedIndex | Index Construction | 6 | ✅ All Pass |
 | TestQueryProcessor | Boolean Queries | 8 | ✅ All Pass |
 | TestWildcardProcessor | Wildcard Queries | 6 | ✅ All Pass |
-| **Total** | | **38** | **✅ All Pass** |
+| **Total** | | **39** | **✅ All Pass** |
 
 ### Tests Cover:
 - ✅ Document loading (valid, empty, missing directories)
@@ -371,7 +384,7 @@ This project successfully implements a complete Information Retrieval System cov
 3. **Boolean Retrieval Model:** AND, OR, NOT, AND NOT using set algebra
 4. **Wildcard Queries:** Prefix, suffix, and infix pattern matching via regex
 5. **Web Interface:** Functional GUI communicating with the real backend
-6. **Testing:** 38 comprehensive test cases validating every module
+6. **Testing:** 39 comprehensive test cases validating every module
 
 The modular architecture ensures each component has a single responsibility and can be understood, tested, and explained independently — making it suitable for academic demonstration and practical examination.
 

@@ -305,6 +305,8 @@ class TestWildcardProcessor(unittest.TestCase):
     def test_prefix_wildcard(self):
         """comp* should match terms starting with 'comp'."""
         matches = self.wp.expand("comp*", self.vocab)
+        self.assertTrue(matches)
+        self.assertIn("computation", matches)
         for m in matches:
             self.assertTrue(m.startswith("comp"),
                             f"'{m}' does not start with 'comp'")
@@ -313,6 +315,8 @@ class TestWildcardProcessor(unittest.TestCase):
     def test_suffix_wildcard(self):
         """*tion should match terms ending with 'tion'."""
         matches = self.wp.expand("*tion", self.vocab)
+        self.assertTrue(matches)
+        self.assertIn("information", matches)
         for m in matches:
             self.assertTrue(m.endswith("tion"),
                             f"'{m}' does not end with 'tion'")
@@ -321,9 +325,13 @@ class TestWildcardProcessor(unittest.TestCase):
     def test_infix_wildcard(self):
         """inter*net should match terms like 'internet'."""
         matches = self.wp.expand("inter*net", self.vocab)
+        self.assertIn("internet", matches)
         for m in matches:
             self.assertTrue(m.startswith("inter") and m.endswith("net"),
                             f"'{m}' does not match inter*net pattern")
+        result = self.qp.process_query("inter*net")
+        self.assertEqual(result['status'], 'success')
+        self.assertGreater(result['total_matching'], 0)
 
     # --- Wildcard via query processor ---
     def test_wildcard_query_integration(self):

@@ -42,7 +42,7 @@ Text classification can identify page topics.
 A modern search system combines multiple signals.
 Result snippets should avoid misleading fragments.
 The query interface should stay clear and responsive.
-Search engines process many requests at once.
+Search engines index pages from across the internet.
 Efficient retrieval depends on a suitable index.
 Useful ranking improves discovery across the web.
 Evaluation queries help measure result quality.

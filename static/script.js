@@ -1,180 +1,127 @@
-/**
- * script.js — Frontend logic for Information Retrieval System
- *
- * Handles:
- *  - Sending search queries to the Flask backend via fetch()
- *  - Rendering results (doc IDs, filenames, snippets, wildcards)
- *  - Clear button functionality
- *  - Enter-key shortcut
- */
+"use strict";
 
-// DOM references
-const searchInput     = document.getElementById('searchInput');
-const searchBtn       = document.getElementById('searchBtn');
-const clearBtn        = document.getElementById('clearBtn');
-const statusBar       = document.getElementById('statusBar');
-const resultsSection  = document.getElementById('resultsSection');
-const resultsSummary  = document.getElementById('resultsSummary');
-const wildcardBox     = document.getElementById('wildcardBox');
-const resultsContainer = document.getElementById('resultsContainer');
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("search-form");
+  const input = document.getElementById("query-input");
+  const searchButton = document.getElementById("search-button");
+  const clearButton = document.getElementById("clear-button");
+  const count = document.getElementById("result-count");
+  const emptyState = document.getElementById("empty-state");
+  const resultContent = document.getElementById("result-content");
 
-// ------------------------------------------------------------------
-// Search Handler
-// ------------------------------------------------------------------
-async function performSearch() {
-    const query = searchInput.value.trim();
+  function addTextElement(parent, tag, className, text) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    element.textContent = text;
+    parent.appendChild(element);
+    return element;
+  }
 
-    // Client-side empty check
-    if (!query) {
-        showStatus('Please enter a search query.', 'warning');
-        hideResults();
-        return;
+  function showError(message) {
+    emptyState.hidden = true;
+    resultContent.hidden = false;
+    resultContent.replaceChildren();
+    addTextElement(resultContent, "p", "error-message", message);
+    count.textContent = "Search could not be completed";
+  }
+
+  function renderResults(data) {
+    emptyState.hidden = true;
+    resultContent.hidden = false;
+    resultContent.replaceChildren();
+
+    if (data.status === "error" || data.status === "warning") {
+      showError(data.message || "Please check your search query.");
+      return;
     }
 
-    // Disable button to prevent double clicks
-    searchBtn.disabled = true;
-    searchBtn.textContent = 'Searching…';
+    const documents = Array.isArray(data.documents) ? data.documents : [];
+    const total = Number(data.total_matching) || 0;
+    count.textContent = total + (total === 1 ? " document found" : " documents found");
+    addTextElement(resultContent, "p", "query-line", "Query: " + data.query);
+    addTextElement(resultContent, "h3", "", "Matching documents");
 
-    try {
-        const response = await fetch('/search', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ query: query })
-        });
-
-        if (!response.ok) {
-            const errData = await response.json().catch(() => null);
-            const msg = errData && errData.message ? errData.message : `Server error (${response.status})`;
-            showStatus(msg, 'error');
-            hideResults();
-            return;
-        }
-
-        const data = await response.json();
-        renderResults(data);
-
-    } catch (err) {
-        showStatus('Network error — is the server running?', 'error');
-        hideResults();
-    } finally {
-        searchBtn.disabled = false;
-        searchBtn.textContent = 'Search';
-    }
-}
-
-// ------------------------------------------------------------------
-// Render Results
-// ------------------------------------------------------------------
-function renderResults(data) {
-    // Status bar
-    showStatus(data.message, data.status);
-
-    if (data.total_matching === 0) {
-        hideResults();
-        return;
-    }
-
-    // Summary row
-    const docIdStr = data.matching_doc_ids.join(', ');
-    resultsSummary.innerHTML = `
-        <span>Matching: <span class="doc-ids">${docIdStr}</span>
-            &nbsp;—&nbsp; <strong>${data.total_matching}</strong> document(s)
-        </span>
-        <span class="exec-time">${data.execution_time_ms} ms</span>
-    `;
-
-    // Wildcard expansions
-    const wcKeys = Object.keys(data.expanded_wildcards || {});
-    if (wcKeys.length > 0) {
-        let wcHTML = '';
-        for (const pattern of wcKeys) {
-            const terms = data.expanded_wildcards[pattern];
-            wcHTML += `<div class="wc-label">Wildcard "${escapeHTML(pattern)}" expanded to ${terms.length} term(s):</div>`;
-            wcHTML += '<div class="wc-terms">';
-            for (const t of terms) {
-                wcHTML += `<span>${escapeHTML(t)}</span>`;
-            }
-            wcHTML += '</div>';
-        }
-        wildcardBox.innerHTML = wcHTML;
-        wildcardBox.classList.remove('hidden');
+    if (documents.length === 0) {
+      addTextElement(resultContent, "p", "no-matches", "No documents matched this query.");
     } else {
-        wildcardBox.classList.add('hidden');
-    }
-
-    // Document cards
-    let cardsHTML = '';
-    for (const doc of data.documents) {
-        // Term frequency badges
-        let tfHTML = '';
-        const tfs = doc.term_frequencies || {};
-        for (const [term, freq] of Object.entries(tfs)) {
-            tfHTML += `<span class="term-freq">${escapeHTML(term)}: ${freq}</span>`;
+      const matchList = document.createElement("ul");
+      matchList.className = "match-list";
+      documents.forEach(function (documentInfo) {
+        const item = document.createElement("li");
+        item.className = "match-card";
+        addTextElement(item, "span", "doc-badge", documentInfo.doc_id || "DOC");
+        const details = document.createElement("div");
+        details.className = "doc-details";
+        addTextElement(details, "div", "filename", documentInfo.filename || "Unnamed document");
+        if (documentInfo.snippet) {
+          addTextElement(details, "p", "snippet", documentInfo.snippet);
         }
-
-        cardsHTML += `
-        <div class="doc-card">
-            <div class="doc-header">
-                <span class="doc-id">${escapeHTML(doc.doc_id)}</span>
-                <span class="doc-filename">${escapeHTML(doc.filename)}</span>
-            </div>
-            <div class="doc-snippet">${escapeHTML(doc.snippet)}</div>
-            <div class="doc-meta">
-                <span>${doc.char_count} chars</span>
-                ${tfHTML}
-            </div>
-        </div>`;
+        item.appendChild(details);
+        matchList.appendChild(item);
+      });
+      resultContent.appendChild(matchList);
     }
-    resultsContainer.innerHTML = cardsHTML;
 
-    // Show section
-    resultsSection.classList.remove('hidden');
-}
-
-// ------------------------------------------------------------------
-// UI Helpers
-// ------------------------------------------------------------------
-function showStatus(message, type) {
-    statusBar.textContent = message;
-    statusBar.className = 'status-bar ' + type;
-    statusBar.classList.remove('hidden');
-}
-
-function hideResults() {
-    resultsSection.classList.add('hidden');
-    resultsContainer.innerHTML = '';
-    resultsSummary.innerHTML = '';
-    wildcardBox.classList.add('hidden');
-}
-
-function clearAll() {
-    searchInput.value = '';
-    statusBar.classList.add('hidden');
-    hideResults();
-    searchInput.focus();
-}
-
-function escapeHTML(str) {
-    const div = document.createElement('div');
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-}
-
-// ------------------------------------------------------------------
-// Event Listeners
-// ------------------------------------------------------------------
-searchBtn.addEventListener('click', performSearch);
-
-clearBtn.addEventListener('click', clearAll);
-
-searchInput.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        performSearch();
+    const expansions = data.expanded_wildcards || {};
+    const patterns = Object.keys(expansions);
+    if (patterns.length > 0) {
+      addTextElement(resultContent, "h3", "", "Wildcard-expanded terms");
+      patterns.forEach(function (pattern) {
+        const terms = document.createElement("div");
+        terms.className = "term-list";
+        (expansions[pattern] || []).forEach(function (term) {
+          addTextElement(terms, "span", "term-chip", term);
+        });
+        if (terms.childElementCount > 0) {
+          resultContent.appendChild(terms);
+        }
+      });
     }
-});
+  }
 
-// Auto-focus on page load
-window.addEventListener('DOMContentLoaded', function () {
-    searchInput.focus();
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const query = input.value.trim();
+    if (!query) {
+      showError("Enter a search query to continue.");
+      input.focus();
+      return;
+    }
+
+    searchButton.disabled = true;
+    searchButton.textContent = "Searching…";
+    try {
+      const response = await fetch("/search", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: query })
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || "The search request failed.");
+      }
+      renderResults(data);
+    } catch (error) {
+      showError(error.message || "Could not connect to the search service.");
+    } finally {
+      searchButton.disabled = false;
+      searchButton.innerHTML = 'Search <span aria-hidden="true">↗</span>';
+    }
+  });
+
+  clearButton.addEventListener("click", function () {
+    input.value = "";
+    resultContent.replaceChildren();
+    resultContent.hidden = true;
+    emptyState.hidden = false;
+    count.textContent = "Ready when you are";
+    input.focus();
+  });
+
+  document.querySelectorAll(".example-query").forEach(function (button) {
+    button.addEventListener("click", function () {
+      input.value = button.textContent.trim();
+      input.focus();
+    });
+  });
 });

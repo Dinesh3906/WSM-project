@@ -1,76 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Information Retrieval System</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f6fc">
+  <title>Information Retrieval System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </head>
 <body>
-    <div class="container">
-        <!-- Header with Top-Right Student Info -->
-        <header class="header">
-            <div class="header-content">
-                <div class="header-brand">
-                    <h1>📚 Information Retrieval System</h1>
-                    <p class="subtitle">WSM Assignment — Boolean &amp; Wildcard Search Engine</p>
-                </div>
-                <div class="student-profile-badge">
-                    <div class="student-avatar">
-                        <span>DK</span>
-                    </div>
-                    <div class="student-meta">
-                        <div class="student-name">Dhavala Dinesh Kumar</div>
-                        <div class="student-tags">
-                            <span class="badge badge-id">ID: b124043</span>
-                            <span class="badge badge-branch">Branch: CSE A</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+  <main class="page-shell">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">IR</div>
+      <div class="hero-copy">
+        <p class="eyebrow">WEB SEARCH AND MINING · PRACTICAL</p>
+        <h1>Information Retrieval System</h1>
+        <p class="intro">Explore a local document collection with Boolean and wildcard search.</p>
+      </div>
+      <aside class="student-card" aria-label="Student details">
+        <div class="student-avatar" aria-hidden="true">DK</div>
+        <div class="student-info">
+          <p class="student-label">STUDENT</p>
+          <p class="student-name">Dhavala Dinesh Kumar</p>
+          <div class="student-tags">
+            <span class="tag tag-branch">CSE A</span>
+            <span class="tag tag-id">ID · b124043</span>
+          </div>
+        </div>
+      </aside>
+    </header>
 
-        <!-- Search Area -->
-        <section class="search-section">
-            <div class="search-bar">
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Enter query  (e.g.  python AND search,  comp*,  data OR NOT java)"
-                    autocomplete="off"
-                >
-                <button id="searchBtn" type="button">Search</button>
-                <button id="clearBtn" type="button" class="btn-clear">Clear</button>
-            </div>
-            <div class="search-hints">
-                <span class="hint">Operators:</span>
-                <code>AND</code> <code>OR</code> <code>NOT</code> <code>AND NOT</code>
-                <span class="hint" style="margin-left:12px;">Wildcards:</span>
-                <code>comp*</code> <code>*tion</code> <code>inter*net</code>
-            </div>
-        </section>
+    <section class="panel search-panel" aria-labelledby="search-title">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">DOCUMENT SEARCH</p>
+          <h2 id="search-title">What are you looking for?</h2>
+        </div>
+        <span class="collection-count"><span class="count-dot"></span> 5 sample documents</span>
+      </div>
 
-        <!-- Status / Message Bar -->
-        <div id="statusBar" class="status-bar hidden"></div>
+      <form id="search-form" class="search-form">
+        <label class="sr-only" for="query-input">Search query</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="query-input" name="query" type="search" autocomplete="off"
+               placeholder="Try python AND search or comp*" required>
+        <button class="button button-primary" type="submit" id="search-button">Search <span aria-hidden="true">↗</span></button>
+        <button class="button button-light" type="button" id="clear-button">Clear</button>
+      </form>
 
-        <!-- Results Area (read-only) -->
-        <section id="resultsSection" class="results-section hidden">
-            <!-- Summary Row -->
-            <div class="results-summary" id="resultsSummary"></div>
+      <div class="search-help">
+        <p class="query-hint">Combine terms with <code>AND</code>, <code>OR</code>, <code>NOT</code> or parentheses. Use <code>*</code> to match word patterns.</p>
+        <div class="examples" aria-label="Example queries">
+          <span class="examples-label">TRY</span>
+          <button type="button" class="example-query">python AND search</button>
+          <button type="button" class="example-query">python OR java</button>
+          <button type="button" class="example-query">inter*net</button>
+        </div>
+      </div>
+    </section>
 
-            <!-- Wildcard Expansions -->
-            <div id="wildcardBox" class="wildcard-box hidden"></div>
+    <section class="panel results-panel" aria-labelledby="results-title">
+      <div class="panel-heading results-heading">
+        <div>
+          <p class="eyebrow">YOUR SEARCH</p>
+          <h2 id="results-title">Results</h2>
+        </div>
+        <span class="result-count" id="result-count">Ready when you are</span>
+      </div>
 
-            <!-- Document Cards -->
-            <div id="resultsContainer" class="results-container"></div>
-        </section>
+      <div id="result-area" class="result-area" role="region" aria-live="polite" aria-label="Read-only search results">
+        <div class="empty-state" id="empty-state">
+          <span class="empty-icon" aria-hidden="true">⌕</span>
+          <p class="empty-title">Your results will appear here</p>
+          <span>Search a term or try one of the examples above.</span>
+        </div>
+        <div id="result-content" class="result-content" hidden></div>
+      </div>
+      <p class="read-only-note"><span aria-hidden="true">▤</span> Search results are read-only and come directly from the document index.</p>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Built with Python &amp; Flask&nbsp;&nbsp;|&nbsp;&nbsp;Dhavala Dinesh Kumar — b124043 — CSE A&nbsp;&nbsp;|&nbsp;&nbsp;WSM Assignment &copy; 2026</p>
-        </footer>
-    </div>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <footer>Built with Python, Flask, and a modular inverted index.</footer>
+  </main>
 </body>
 </html>

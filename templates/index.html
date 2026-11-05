@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Retrieval System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📚 Information Retrieval System</h1>
+            <p class="subtitle">WSM Assignment — Boolean &amp; Wildcard Search Engine</p>
+        </header>
+
+        <!-- Search Area -->
+        <section class="search-section">
+            <div class="search-bar">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Enter query  (e.g.  python AND search,  comp*,  data OR NOT java)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn" type="button">Search</button>
+                <button id="clearBtn" type="button" class="btn-clear">Clear</button>
+            </div>
+            <div class="search-hints">
+                <span class="hint">Operators:</span>
+                <code>AND</code> <code>OR</code> <code>NOT</code> <code>AND NOT</code>
+                <span class="hint" style="margin-left:12px;">Wildcards:</span>
+                <code>comp*</code> <code>*tion</code> <code>inter*net</code>
+            </div>
+        </section>
+
+        <!-- Status / Message Bar -->
+        <div id="statusBar" class="status-bar hidden"></div>
+
+        <!-- Results Area (read-only) -->
+        <section id="resultsSection" class="results-section hidden">
+            <!-- Summary Row -->
+            <div class="results-summary" id="resultsSummary"></div>
+
+            <!-- Wildcard Expansions -->
+            <div id="wildcardBox" class="wildcard-box hidden"></div>
+
+            <!-- Document Cards -->
+            <div id="resultsContainer" class="results-container"></div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with Python &amp; Flask&nbsp;&nbsp;|&nbsp;&nbsp;Dhavala Dinesh Kumar — B124043 — CSE-A&nbsp;&nbsp;|&nbsp;&nbsp;WSM Assignment &copy; 2026</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

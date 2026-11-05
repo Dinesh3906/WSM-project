@@ -1,0 +1,9 @@
+Information retrieval is the science of searching for documents, information within documents, and metadata about documents.
+An inverted index is the fundamental data structure used by every major search engine and retrieval platform.
+The indexing pipeline consists of document loading, tokenization, text normalization, and dictionary construction.
+Tokenization breaks continuous raw text into discrete linguistic units or tokens.
+Text normalization performs case folding, punctuation stripping, and stopword removal to ensure consistent term matching.
+In an inverted index, each vocabulary term points to a postings list containing document identifiers and term frequencies.
+Efficient query processing evaluates Boolean queries using set intersection and union operations.
+Wildcard query evaluation expands terms using vocabulary pattern matching to retrieve relevant information across large corpora.
+

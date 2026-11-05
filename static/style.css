@@ -1,0 +1,319 @@
+/* ======================================================================
+   style.css — Information Retrieval System
+   Clean, modern, responsive design for the search GUI
+   ====================================================================== */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ---------- Container ---------- */
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+/* ---------- Header ---------- */
+.header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #16213e;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ---------- Search Section ---------- */
+.search-section {
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#searchInput:focus {
+    border-color: #0f3460;
+}
+
+#searchBtn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #0f3460;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#searchBtn:hover {
+    background: #1a1a5e;
+}
+
+.btn-clear {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-clear:hover {
+    background: #ccc;
+}
+
+/* Search Hints */
+.search-hints {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: #777;
+}
+
+.search-hints code {
+    background: #e8eaf6;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    margin: 0 2px;
+}
+
+.hint {
+    font-weight: 600;
+    color: #555;
+}
+
+/* ---------- Status Bar ---------- */
+.status-bar {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.status-bar.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.status-bar.warning {
+    background: #fff3e0;
+    color: #e65100;
+    border: 1px solid #ffcc80;
+}
+
+.status-bar.error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.status-bar.no_results {
+    background: #fff8e1;
+    color: #f57f17;
+    border: 1px solid #ffe082;
+}
+
+/* ---------- Results Section ---------- */
+.results-section {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Summary Row */
+.results-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+    color: #444;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.results-summary .doc-ids {
+    font-weight: 600;
+    color: #0f3460;
+}
+
+.results-summary .exec-time {
+    font-size: 0.82rem;
+    color: #888;
+}
+
+/* Wildcard Box */
+.wildcard-box {
+    background: #e8eaf6;
+    border: 1px solid #c5cae9;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    font-size: 0.88rem;
+}
+
+.wildcard-box .wc-label {
+    font-weight: 700;
+    color: #283593;
+    margin-bottom: 4px;
+}
+
+.wildcard-box .wc-terms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.wildcard-box .wc-terms span {
+    background: #c5cae9;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.84rem;
+    color: #1a237e;
+}
+
+/* Results Container */
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Document Card */
+.doc-card {
+    background: #fff;
+    border: 1px solid #dde;
+    border-radius: 10px;
+    padding: 16px 20px;
+    transition: box-shadow 0.2s;
+}
+
+.doc-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.doc-card .doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.doc-card .doc-id {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #0f3460;
+}
+
+.doc-card .doc-filename {
+    font-size: 0.88rem;
+    color: #666;
+    background: #f5f5f5;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.doc-card .doc-snippet {
+    font-size: 0.92rem;
+    color: #444;
+    margin-top: 6px;
+    line-height: 1.55;
+}
+
+.doc-card .doc-meta {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.doc-card .term-freq {
+    background: #e3f2fd;
+    color: #1565c0;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* ---------- Hidden Utility ---------- */
+.hidden {
+    display: none !important;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 0.82rem;
+    color: #999;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.45rem;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    #searchBtn,
+    .btn-clear {
+        width: 100%;
+    }
+
+    .results-summary {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

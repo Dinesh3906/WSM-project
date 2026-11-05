@@ -1,1 +1,50 @@
-Machine learning algorithms learn patterns from data and use them to make predictions. In supervised learning, examples have labels such as topic, language, or relevance. A classification model can sort documents into categories after it learns from training examples. Unsupervised methods group similar records without labels. Text features may include token counts, term frequency, or vector representations. Python libraries help students prepare data, train a model, and evaluate its accuracy. Search engines can use these predictions to rank documents and improve information retrieval.
+Learning approaches
+Machine learning algorithms find patterns in example data.
+A supervised model learns from labelled examples.
+An unsupervised model groups items without labels.
+Classification predicts a category for each document.
+Regression predicts a numeric outcome.
+Clustering can reveal themes in a corpus.
+A training process adjusts model parameters.
+A feature describes one property of an example.
+A label contains the expected answer.
+Preparing data
+A dataset should match the intended application.
+Missing values need a consistent treatment.
+Text can be converted into token count features.
+Term frequency represents how often a word occurs.
+TF-IDF emphasizes words that distinguish documents.
+A vector stores numeric feature values.
+Normalization can scale values to a useful range.
+Train and test data should remain separate.
+Data leakage gives an unfair performance estimate.
+Model evaluation
+Accuracy counts correct predictions overall.
+Precision measures the reliability of positive results.
+Recall measures the share of positives found.
+F1 balances precision and recall.
+A confusion matrix shows types of error.
+Cross validation can compare model settings.
+A validation set helps select parameters.
+A test set estimates final performance.
+Unbalanced classes can mislead accuracy.
+Using models in search
+A classifier can route documents to a topic.
+A ranking model can estimate query relevance.
+A recommendation system predicts items a reader may prefer.
+Search logs can provide feedback signals.
+Personalization should respect user privacy.
+A learned model can complement a term index.
+Feature weights can explain part of a score.
+Python scripts can automate training experiments.
+Model outputs should be checked with real queries.
+Risks and improvement
+Overfitting occurs when training examples are memorized.
+Regularization can discourage overly complex patterns.
+More features may increase memory costs.
+Labels can include annotation mistakes.
+Bias in training data can affect predictions.
+A model may drift as topics change.
+Monitoring should track real system performance.
+Human review can help with uncertain cases.
+Versioning records which data trained a model.

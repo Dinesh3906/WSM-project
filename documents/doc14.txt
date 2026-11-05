@@ -1,1 +1,50 @@
-Data structures define how programs store and access information. Arrays keep items in an ordered sequence, linked lists connect nodes, and stacks and queues control the order of operations. A hash table maps keys to values and supports fast average lookup. Trees organize values hierarchically, while graphs represent relationships between entities. Search software relies on these structures to manage vocabulary, postings, document metadata, and query results. Choosing a suitable structure affects memory use and response time as a collection grows.
+Sequences and collections
+An array stores values in indexed positions.
+A list can grow as new items arrive.
+A linked list connects nodes through references.
+A stack removes the most recently added value.
+A queue removes the earliest added value.
+A deque supports work at both ends.
+A set stores only unique members.
+A tuple groups values that should stay fixed.
+Iteration visits items in a predictable order.
+Maps and tables
+A map associates keys with values.
+A dictionary can map terms to postings.
+A hash function chooses a storage bucket.
+Collisions require comparison or a probing rule.
+Average hash lookup is usually fast.
+A sorted map can support range queries.
+A database table stores records in rows.
+A primary key identifies a record uniquely.
+A secondary index supports another lookup field.
+Trees and priorities
+A tree organizes values in parent and child nodes.
+Binary trees have at most two child branches.
+Balanced trees limit search depth.
+A B-tree groups many keys into each page.
+A heap keeps a priority value near the root.
+A priority queue can preserve top search results.
+Tree traversal visits nodes in a chosen order.
+Rotations can restore balance after updates.
+A range query follows an ordered key interval.
+Graphs and relationships
+A graph contains vertices and edges.
+Vertices represent objects or locations.
+Edges represent links between objects.
+Directed edges have a source and destination.
+An adjacency list stores each vertex neighbors.
+An adjacency matrix records pairwise links.
+A web graph models pages and hyperlinks.
+Breadth first search explores nearby vertices first.
+Depth first search follows a path before backtracking.
+Applied to information retrieval
+An inverted index uses maps and posting lists.
+A query combines term sets with Boolean operations.
+A ranking heap can retain the best matches.
+Document metadata can be stored by identifier.
+Sets make duplicate result removal simple.
+Queues can schedule web crawler requests.
+Graph structures can model recommendation links.
+Sorting can order documents by score.
+Tests should check empty and large collections.

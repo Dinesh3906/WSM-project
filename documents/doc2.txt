@@ -1,9 +1,50 @@
-Information retrieval is the science of searching for documents, information within documents, and metadata about documents.
-An inverted index is the fundamental data structure used by every major search engine and retrieval platform.
-The indexing pipeline consists of document loading, tokenization, text normalization, and dictionary construction.
-Tokenization breaks continuous raw text into discrete linguistic units or tokens.
-Text normalization performs case folding, punctuation stripping, and stopword removal to ensure consistent term matching.
-In an inverted index, each vocabulary term points to a postings list containing document identifiers and term frequencies.
-Efficient query processing evaluates Boolean queries using set intersection and union operations.
-Wildcard query evaluation expands terms using vocabulary pattern matching to retrieve relevant information across large corpora.
-
+Information retrieval finds useful documents for a query.
+A collection contains source documents and their metadata.
+A user begins with a topic or information need.
+A search query expresses that need using words.
+The retrieval system compares query terms with documents.
+Relevant documents should appear in the result list.
+Document loading reads files into the application.
+Each loaded file receives a stable document identifier.
+The filename helps people recognize a result.
+Tokenization splits text into searchable word units.
+Normalization gives equivalent words a common representation.
+Case folding treats Python and python as equal.
+Punctuation removal simplifies many term comparisons.
+The vocabulary contains all unique indexed terms.
+An inverted index maps terms to document postings.
+A posting records one document containing a term.
+Term frequency counts occurrences within a document.
+Document frequency counts documents containing a term.
+A postings list avoids scanning every source file.
+Set intersection implements an AND query.
+Set union implements an OR query.
+Set difference can implement AND NOT.
+NOT returns documents outside a term posting.
+The document universe defines the scope of NOT.
+Parentheses can make a Boolean query easier to read.
+Query parsing identifies terms and operators.
+Operator precedence determines the order of evaluation.
+Wildcard processing expands a pattern against vocabulary.
+Prefix patterns can match several related terms.
+Suffix patterns can retrieve words with a shared ending.
+An infix pattern can match text between fragments.
+Expanded terms provide a clear query explanation.
+Search results should show document IDs and filenames.
+A useful snippet gives context for a matching term.
+Term frequency can help describe a result.
+An empty query should receive a helpful message.
+An unknown term can return zero matches.
+A valid query may also have no matches.
+The interface should keep results read only.
+A local text collection is easy to demonstrate.
+Overlapping terms support Boolean query examples.
+Python documents can test case insensitive matching.
+Search documents can test posting set operations.
+Information retrieval systems can rank result documents.
+Evaluation compares returned items with relevant items.
+Precision measures the quality of returned matches.
+Recall measures how many relevant items were found.
+A clear index makes query behavior explainable.
+Modular code separates loading from retrieval.
+Small corpora help students inspect every result.

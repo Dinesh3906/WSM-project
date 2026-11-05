@@ -1,1 +1,50 @@
-Databases organize records for fast lookup, filtering, sorting, and joins. A B-tree index stores keys in sorted pages so queries can find matching rows without scanning every record. Hash tables support exact key lookup, while an inverted index is useful for full-text search. Database query planners compare indexes and choose an efficient execution plan. Terms, values, and document identifiers are common building blocks across data systems. Indexes speed retrieval but take memory and must be updated when data changes. Understanding this tradeoff helps programmers build reliable search applications.
+Database records
+A database stores structured records for applications.
+A record contains fields with values.
+A key can identify one record uniquely.
+Queries select records by field conditions.
+A table scan checks each row in sequence.
+Indexes reduce work for common lookup patterns.
+Database systems keep schemas for consistent data.
+Transactions coordinate related database updates.
+Constraints prevent invalid values from being stored.
+Tree indexes
+A B-tree keeps keys in sorted order.
+Balanced tree pages limit the path to a key.
+Range queries can walk neighboring sorted entries.
+Database planners can compare multiple candidate indexes.
+An index adds storage and update costs.
+Frequent writes may require index maintenance.
+A covering index can answer a query from keys.
+Composite keys combine several search fields.
+Page splits reorganize a growing tree structure.
+Hash indexes
+A hash function maps a key to a bucket.
+Exact equality lookup can be very fast.
+Collisions require a strategy for shared buckets.
+Hash indexes usually do not support ordered ranges.
+Poor hash distribution can create crowded buckets.
+The original key must be compared after hashing.
+Hash tables also support application level lookup.
+Index choice should fit the query pattern.
+Memory limits can affect hash performance.
+Full text retrieval
+A database may include a full text index.
+An inverted index maps each term to records.
+Tokenization produces terms from text fields.
+Normalization helps match words consistently.
+Posting lists store record identifiers for terms.
+A phrase query can examine token positions.
+Term frequency may support relevance ranking.
+Search can combine text terms with field filters.
+A query plan decides how operators are applied.
+Maintenance and reliability
+Insert operations can add new searchable rows.
+Updates may change index postings and term counts.
+Deletes should remove stale references from an index.
+Periodic checks can detect index corruption.
+Backups should include data and schema versions.
+Permissions control who can read protected rows.
+Logs help explain slow query behavior.
+Metrics reveal resource pressure on the database.
+A clear index policy supports reliable retrieval.

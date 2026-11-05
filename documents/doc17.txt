@@ -1,1 +1,50 @@
-Distributed search divides a large document collection across several machines. Each shard stores part of an index, and a coordinator sends a query to the relevant shards. The nodes retrieve local matches and return document identifiers and scores. Replication keeps copies of data available when a machine fails. Load balancing spreads requests so one server does not become a bottleneck. Distributed indexing allows a search service to grow as more documents and users are added, but it also requires careful coordination and monitoring.
+Distributed collection
+A distributed search service uses several machines.
+The document corpus can be split into shards.
+Each shard stores part of an inverted index.
+A coordinator receives the users query.
+The coordinator sends work to the selected shards.
+Each shard searches its local postings.
+Shard results return document identifiers and scores.
+The coordinator merges the local result lists.
+Partitioning can balance storage across nodes.
+Replication and availability
+A replica stores another copy of an index shard.
+Replicas help continue service after a node failure.
+The system can send reads to healthy replicas.
+Replication increases storage requirements.
+Updates must reach the necessary copies.
+A health check can detect an unavailable server.
+A failover policy selects a replacement node.
+Logs help explain replication delays.
+Backups protect against broader data loss.
+Query coordination
+Queries can run in parallel across shards.
+Parallel work can reduce response time.
+A timeout prevents one slow shard from blocking forever.
+Partial results can be marked clearly.
+The coordinator merges scores from different shards.
+Different shards need compatible ranking rules.
+A global vocabulary can guide query planning.
+Hot terms may appear in many partitions.
+Caching can reduce repeated search work.
+Scaling and performance
+Adding machines can increase storage capacity.
+Load balancing spreads requests across servers.
+Monitoring tracks CPU, memory, and request latency.
+A queue can smooth sudden traffic bursts.
+Network transfer contributes to total response time.
+Compact postings reduce data movement.
+Batch indexing can process new documents efficiently.
+A shard can be rebalanced when it grows.
+Capacity estimates should include future collection size.
+Consistency and maintenance
+A new index can be published after validation.
+Version identifiers distinguish index snapshots.
+Stale replicas can return old documents.
+Schema changes require coordinated deployment.
+Access checks must apply to every shard.
+Maintenance should preserve query availability.
+A service dashboard can show shard health.
+Clear alerts help operators respond quickly.
+Distributed retrieval adds operational complexity.

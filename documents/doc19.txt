@@ -1,1 +1,50 @@
-Digital libraries preserve books, articles, images, and research papers in searchable collections. Metadata records details such as title, author, publication date, and subject. A library index combines these fields with the full text of each document. Users can search by keyword or filter by a field such as year or author. Stable document identifiers make it easier to cite and retrieve a source. Good metadata and clear query tools help readers discover relevant material in a large archive.
+Library collections
+A digital library stores books, articles, and media.
+Research papers can be indexed with their full text.
+Each item should have a stable identifier.
+A collection may contain scans and born digital files.
+Long term preservation protects access to sources.
+Copyright rules guide public availability.
+Readers need reliable links to documents.
+A catalog can describe one item or a series.
+Archives can group records by collection.
+Metadata fields
+Metadata records details about a resource.
+A title field names the work.
+An author field identifies a creator.
+A date field records publication time.
+A subject field describes the main topic.
+An abstract summarizes the document.
+A format field identifies the media type.
+Identifiers help link catalog and file records.
+Controlled vocabularies make subjects consistent.
+Search and filtering
+A full text index can match words inside a document.
+Field search can restrict results by author or date.
+Filters narrow a large result set.
+Facets summarize available categories.
+A query can combine terms with metadata filters.
+Ranking can favor exact title matches.
+Spelling support can help readers find old terminology.
+Language options serve broader collections.
+Result counts help users judge scope.
+Access and preservation
+Some items may require a reading room.
+Digital copies need suitable access controls.
+Persistent identifiers can survive site redesigns.
+Checksums can detect file corruption.
+Multiple copies reduce preservation risk.
+Open formats can ease future migration.
+Version notes distinguish editions and revisions.
+Preservation metadata records technical history.
+A library should respect creator rights.
+Research experience
+A citation export helps readers use a source.
+A stable URL makes a result easier to share.
+Snippet text should not replace the full document.
+Accessible controls help more readers use catalogs.
+Search terms can be highlighted in context.
+A collection guide explains its coverage.
+Librarians can curate useful subject paths.
+Usage feedback can uncover confusing metadata.
+Evaluation should include real research tasks.

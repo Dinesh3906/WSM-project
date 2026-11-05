@@ -1,1 +1,50 @@
-Web crawlers discover pages by following links and recording URLs. A search engine begins with seed pages, downloads HTML, extracts text and metadata, and adds new links to a crawl queue. The crawler respects rate limits and revisit policies so web servers remain responsive. Indexing converts collected web documents into searchable terms. An inverted index connects each word to document identifiers and makes retrieval efficient. Duplicate detection prevents the same page from filling search results. Freshness signals help a system choose which pages to revisit. Python tools are often used to automate crawling, parsing, and data cleaning.
+Crawling goals
+A web crawler discovers pages by following hyperlinks.
+Seed URLs provide the first addresses to visit.
+Each fetched page can reveal more useful links.
+The crawler stores URLs in a work queue.
+A visited set prevents repeated page downloads.
+The crawl can stop after reaching a limit.
+Search engines need fresh pages for their indexes.
+Crawling helps build a collection for retrieval.
+Monitoring reports pages fetched during each run.
+URL discovery
+A URL identifies a resource on the web.
+Relative links must be resolved against page addresses.
+Canonical URLs help group duplicate page versions.
+Query parameters can create many similar addresses.
+A crawler records links before scheduling more work.
+A sitemap can provide a list of known pages.
+Internal links often connect related documents.
+External links can expand the collection to new sites.
+A queue keeps discovery separate from downloading.
+Page fetching
+HTTP requests ask a server for page content.
+Responses include a status and content type.
+HTML parsers separate text from markup.
+Metadata can describe a page title and author.
+Timeouts prevent a slow page from blocking a crawl.
+Retry policies can recover temporary network errors.
+Compressed responses can reduce transfer size.
+The crawler should avoid downloading binary data as text.
+A download log helps diagnose collection gaps.
+Responsible crawling
+A crawler should obey site access rules.
+Robots instructions describe paths that can be visited.
+Rate limits reduce load on a remote server.
+A delay can separate requests to one domain.
+User agent information identifies the crawler software.
+Contact details help administrators report crawler problems.
+The system should respect server error responses.
+A crawl budget limits work on large websites.
+Responsible collection improves long term access.
+Index preparation
+Extracted page text becomes input to tokenization.
+A parser can remove navigation and repeated menus.
+Duplicate detection reduces redundant search results.
+Language identification can select a suitable tokenizer.
+Normalization makes terms consistent across documents.
+An inverted index maps words to page identifiers.
+Document metadata can be stored beside page text.
+The index should record when each page was fetched.
+Freshness checks can schedule future visits.

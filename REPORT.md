@@ -107,7 +107,7 @@ WSM_Assignment/
 │   ├── query_processor.py      # Module 5: Query processing
 │   └── wildcard_processor.py   # Module 6: Wildcard handling
 │
-├── documents/                  # Corpus (20 sample documents)
+├── documents/                  # Corpus (20 sample documents, 50 lines each)
 │   ├── doc1.txt – doc5.txt      # Python, information retrieval, search, data structures, ML
 │   ├── doc6.txt – doc10.txt     # Crawling, ranking, Boolean search, databases, tokenization
 │   ├── doc11.txt – doc15.txt    # NLP, machine learning, semantic search, graphs
@@ -121,7 +121,7 @@ WSM_Assignment/
 │   └── script.js               # Frontend logic
 │
 ├── tests/
-│   └── test_search.py          # 39 automated test cases
+│   └── test_search.py          # 40 automated test cases
 │
 ├── requirements.txt            # Dependencies
 ├── README.md                   # Project documentation
@@ -288,7 +288,7 @@ Result:      {"DOC1"}  (documents containing both terms)
 
 ## 7. Sample Dataset
 
-Twenty documents cover overlapping topics to enable Boolean and wildcard testing:
+Twenty documents with 50 lines each cover overlapping topics for Boolean and wildcard testing:
 
 | Document | Topic | Key Terms |
 |----------|-------|-----------|
@@ -323,17 +323,17 @@ Twenty documents cover overlapping topics to enable Boolean and wildcard testing
 
 ## 8. Test Results
 
-The project includes **39 automated test cases** organized into 6 test classes:
+The project includes **40 automated test cases** organized into 6 test classes:
 
 | Test Class | Module Tested | Tests | Status |
 |------------|---------------|-------|--------|
-| TestDocumentLoader | Document Loading | 7 | ✅ All Pass |
+| TestDocumentLoader | Document Loading | 8 | ✅ All Pass |
 | TestTokenizer | Tokenization | 6 | ✅ All Pass |
 | TestNormalizer | Case Folding | 6 | ✅ All Pass |
 | TestInvertedIndex | Index Construction | 6 | ✅ All Pass |
 | TestQueryProcessor | Boolean Queries | 8 | ✅ All Pass |
 | TestWildcardProcessor | Wildcard Queries | 6 | ✅ All Pass |
-| **Total** | | **39** | **✅ All Pass** |
+| **Total** | | **40** | **✅ All Pass** |
 
 ### Tests Cover:
 - ✅ Document loading (valid, empty, missing directories)
@@ -384,7 +384,7 @@ This project successfully implements a complete Information Retrieval System cov
 3. **Boolean Retrieval Model:** AND, OR, NOT, AND NOT using set algebra
 4. **Wildcard Queries:** Prefix, suffix, and infix pattern matching via regex
 5. **Web Interface:** Functional GUI communicating with the real backend
-6. **Testing:** 39 comprehensive test cases validating every module
+6. **Testing:** 40 comprehensive test cases validating every module
 
 The modular architecture ensures each component has a single responsibility and can be understood, tested, and explained independently — making it suitable for academic demonstration and practical examination.
 

@@ -2,6 +2,8 @@
 
 A modular **Information Retrieval System** built with Python and Flask, demonstrating document indexing, text preprocessing, inverted index construction, Boolean query processing, wildcard query handling, and a web-based search GUI.
 
+The sample corpus contains **20 documents with exactly 50 non-empty lines each**.
+
 ---
 
 ## Features
@@ -43,7 +45,7 @@ WSM_Assignment/
 │   ├── query_processor.py      # Module 5: Query processing (Boolean)
 │   └── wildcard_processor.py   # Module 6: Wildcard query handling
 │
-├── documents/                  # 20 sample text documents
+├── documents/                  # 20 sample text documents, 50 lines each
 │   ├── doc1.txt – doc5.txt      # Python, retrieval, search, data structures, machine learning
 │   ├── doc6.txt – doc10.txt     # Crawling, ranking, Boolean search, databases, tokenization
 │   ├── doc11.txt – doc15.txt    # NLP, learning, semantic search, data structures, graph algorithms

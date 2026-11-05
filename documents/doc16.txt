@@ -1,1 +1,50 @@
-Evaluation metrics help measure the quality of an information retrieval system. Precision is the fraction of returned documents that are relevant, and recall is the fraction of relevant documents that were found. F1 combines precision and recall into one score. Ranking measures such as mean average precision consider the order of results. Test queries should reflect the topics and language used by real users. Comparing these metrics across system versions helps developers improve indexing, query processing, and relevance.
+Evaluation goals
+Evaluation measures how well a retrieval system serves its users.
+A test begins with a clear information need.
+A query represents one information need.
+A relevance judgment marks useful documents.
+Judgments can come from expert readers.
+The test set should cover several topics.
+Repeated queries can reveal unstable behavior.
+A baseline helps compare later improvements.
+Evaluation results should be reproducible.
+Precision and recall
+Precision is the share of results that are relevant.
+Recall is the share of relevant documents that were retrieved.
+A strict query can improve precision.
+A broad query can improve recall.
+F1 combines precision and recall.
+Precision at ten looks at the first page.
+Recall requires a known set of relevant items.
+False positives reduce precision.
+Missed documents reduce recall.
+Ranking measures
+Mean average precision rewards useful ordering.
+Reciprocal rank focuses on the first relevant result.
+Discounted gain gives greater value to early results.
+NDCG normalizes gain across queries.
+A ranking metric needs graded relevance judgments.
+The top result deserves careful inspection.
+A relevant item below the fold may go unseen.
+Scores can compare two ranking methods.
+Tie handling should be consistent.
+Test design
+Test queries should reflect real user language.
+Include both common and rare terms.
+Paraphrases can test semantic matching.
+Boolean queries can test operator handling.
+Wildcard tests can check vocabulary expansion.
+No match queries test empty result behavior.
+Misspelled terms can test correction features.
+Test documents should cover overlapping topics.
+A separate test set reduces tuning bias.
+Error analysis
+Review false positives to find noisy terms.
+Review false negatives to find missing documents.
+A snippet can help explain a returned match.
+A query log can identify repeated issues.
+Group errors by topic and query type.
+Latency should be measured beside relevance.
+Slow results can reduce user trust.
+Unexpected results should be reproducible.
+A simple table can summarize findings.

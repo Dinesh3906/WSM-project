@@ -1,1 +1,50 @@
-Boolean retrieval models combine search terms with AND, OR, and NOT. AND returns documents that contain both terms, OR returns documents containing either term, and NOT excludes a term from the result set. Each operation can use document ID sets from postings lists in an inverted index. Parentheses group a complex query and make its meaning explicit. Query processing applies set intersection, union, and difference. Students can test each operator against a small corpus and compare matching document names. Wildcard expansion can turn one term pattern into several vocabulary terms.
+Boolean query basics
+Boolean retrieval combines terms with logical operators.
+AND requests documents containing both operand terms.
+OR requests documents containing either operand term.
+NOT excludes documents that contain a chosen term.
+A term query returns its own posting set.
+Operators make the meaning of a search explicit.
+Case folding can normalize operator spelling.
+Spaces separate words and query operators.
+A parser should reject incomplete expressions.
+Set based evaluation
+An inverted index supplies the term posting sets.
+AND is computed with set intersection.
+OR is computed with set union.
+NOT uses the full document universe.
+A minus B removes B items from A.
+AND NOT can be evaluated as set difference.
+Set operations avoid scanning document text repeatedly.
+The result contains unique document identifiers.
+Sorted IDs make output stable and predictable.
+Precedence and grouping
+AND commonly binds more tightly than OR.
+Parentheses allow users to control grouping.
+Nested groups should be parsed in order.
+A closing parenthesis must have a matching opener.
+An expression cannot end immediately after AND.
+Two adjacent terms need a clear operator.
+A unary NOT must have a following operand.
+Syntax validation should run before evaluation.
+Operator precedence belongs in one parser rule.
+Wildcard terms
+The star operator represents a variable string.
+A prefix pattern matches terms beginning alike.
+A suffix pattern matches terms ending alike.
+An infix pattern matches text between fragments.
+Expansion checks patterns against indexed vocabulary.
+Each expansion contributes its postings to a set.
+A pattern with no terms returns no matches.
+The interface should show expanded vocabulary words.
+Boolean operators can combine wildcard results.
+Query examples
+Python AND search finds documents with both terms.
+Python OR Java includes documents matching either term.
+NOT Java excludes documents containing Java.
+Search AND NOT Python filters programming documents.
+Parentheses can group a broader OR expression.
+Uppercase and lowercase query words should behave equally.
+An absent term should not crash processing.
+An empty query should prompt for input.
+A long expression should retain predictable meaning.

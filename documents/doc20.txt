@@ -1,1 +1,50 @@
-An accessible search interface helps people use a document collection with different devices and assistive technologies. Clear labels describe the query box and buttons, and keyboard navigation supports users who do not use a mouse. Readable contrast makes result details easier to see. A responsive layout adapts to small screens without hiding document names or search controls. Helpful error messages explain an empty or invalid query. These design choices make information retrieval easier to use for students and other readers.
+Accessible interface
+An accessible search interface serves different readers.
+Clear labels identify the query field and buttons.
+Keyboard users need a visible focus indicator.
+A logical tab order supports navigation.
+Screen readers announce result updates.
+Semantic headings help people scan the page.
+Text contrast should remain readable.
+Controls need enough space for touch input.
+Instructions should use direct and familiar language.
+Responsive layout
+A responsive page adapts to narrow screens.
+The search field should remain easy to reach.
+Buttons should fit without horizontal scrolling.
+Document names can wrap onto a new line.
+Results should preserve useful context on mobile.
+Flexible cards adjust to different window sizes.
+Spacing can separate controls from results.
+A compact layout should not hide important details.
+Testing should include several screen widths.
+Search interaction
+A form should submit from the keyboard.
+The search button should show when work is in progress.
+Empty input should produce a helpful prompt.
+A failed request should explain what went wrong.
+The clear button should reset the query and results.
+Result updates should be announced politely.
+A user should retain the query after searching.
+Example queries can teach supported syntax.
+Search results should be read only.
+Result presentation
+Document identifiers should be easy to distinguish.
+Filenames explain which source matched.
+Snippets provide a useful text preview.
+The total count summarizes the result set.
+Wildcard expansions should be visible.
+No match messages should offer a next step.
+Long result lists should remain scrollable.
+A consistent card layout aids comparison.
+Metadata should not overwhelm the main content.
+Quality assurance
+Automated tests can check keyboard behavior.
+Manual review can catch confusing instructions.
+Accessibility checks should be repeated after changes.
+Mobile tests can identify overflow.
+Real user feedback reveals practical barriers.
+Performance affects people on slow connections.
+Focus should move sensibly after clearing results.
+Error text should be exposed to assistive tools.
+Labels should remain visible or available to technology.

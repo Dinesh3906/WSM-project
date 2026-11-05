@@ -1,1 +1,50 @@
-Graph algorithms study relationships represented by vertices and edges. A web graph can model pages as vertices and hyperlinks as directed edges. Breadth first search explores nearby vertices, while depth first search follows a path before backtracking. PageRank assigns scores based on incoming links and can help estimate page authority. Graph data structures are also used in recommendation systems, maps, and social networks. Efficient traversal lets search systems process large networks and discover connected documents.
+Graph model
+A graph represents entities and their relationships.
+Vertices represent pages, people, or locations.
+Edges connect one vertex to another.
+A directed edge has a source and destination.
+An undirected edge works in both directions.
+Weights can represent distance or strength.
+A web graph contains pages and hyperlinks.
+A social graph connects user accounts.
+An adjacency list stores neighboring vertices.
+Traversal methods
+Breadth first search explores neighbors by distance.
+A queue stores vertices waiting to be explored.
+Depth first search follows one branch at a time.
+A stack supports depth first traversal.
+Visited markers prevent processing one vertex repeatedly.
+Traversal can identify connected components.
+Shortest path algorithms compare possible routes.
+Weighted edges require suitable path logic.
+A graph may contain cycles.
+Ranking and recommendation
+PageRank uses incoming links to estimate page authority.
+A link can transfer some value to its destination.
+Repeated updates move scores toward stable values.
+Dangling pages have no outgoing edges.
+A damping factor models random navigation.
+Recommendations can use shared graph neighbors.
+Strong connections can indicate related topics.
+Graph scores can supplement text relevance.
+A link alone does not prove quality.
+Graph data at scale
+Large graphs need compact storage.
+Distributed graph processing splits work across machines.
+Edges may cross partition boundaries.
+Caching can reuse popular neighbor lists.
+Graph updates can change many derived scores.
+A crawl can discover new graph vertices.
+Monitoring should detect failed jobs.
+Batch processing can refresh scores periodically.
+Approximate algorithms can trade accuracy for speed.
+Retrieval uses
+A search query can identify a starting vertex.
+Related pages can expand candidate documents.
+Entity links can clarify ambiguous names.
+Graph context can reveal connected topics.
+Path exploration can answer relationship questions.
+A graph index can support exploratory search.
+Result snippets still need original document text.
+Evaluation checks whether graph signals help readers.
+Human review can detect unwanted associations.

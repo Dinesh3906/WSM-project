@@ -1,1 +1,50 @@
-Query expansion adds useful terms to a user's original search. A system may suggest synonyms, spelling corrections, or related phrases before retrieving documents. Expansion can improve recall when an author and a searcher use different words for the same idea. It can also return unrelated results if the added terms are too broad. Relevance feedback uses selected documents to refine the next query. Search interfaces should make suggestions clear and let users understand how their query changes.
+Expansion goals
+Query expansion adds related terms to a search request.
+A synonym can connect different words for one concept.
+A spelling suggestion can recover a typing mistake.
+Related phrases can clarify an ambiguous query.
+Expansion can retrieve documents using alternate wording.
+More query terms can also add noise.
+A user should understand suggested changes.
+The original query should remain available.
+Expansion rules can depend on the subject.
+Sources for expansion
+A thesaurus can provide controlled synonyms.
+A subject dictionary records domain relationships.
+Co-occurrence statistics reveal terms used together.
+Search logs can show common reformulations.
+Language models can suggest semantically related phrases.
+Human editors can review specialist vocabulary.
+Abbreviations can map to expanded names.
+Alternate spellings can match regional usage.
+Fresh content can introduce new terms.
+Relevance feedback
+A user can mark a result as useful.
+Feedback can refine a later query.
+Terms from selected documents can be promoted.
+Irrelevant selections should not distort the query.
+Feedback should be optional and easy to undo.
+Private behavior data needs protection.
+A small feedback set may be noisy.
+Repeated signals can reveal useful patterns.
+The interface should describe the effect.
+Expansion quality
+Precision checks whether expanded results are useful.
+Recall checks whether relevant documents become findable.
+A synonym list needs representative test examples.
+Broad terms can swamp an exact match.
+Weights can distinguish original and added terms.
+A result explanation can display expanded words.
+Query length should stay manageable.
+An empty expansion should preserve the original query.
+Tests should include no known synonym.
+User interface
+Suggestions can appear as clickable chips.
+A query preview shows terms before submission.
+Users should control which suggestions are used.
+An easy clear button resets the search.
+Keyboard navigation should work for suggestions.
+Helpful labels explain why a term was added.
+A ranked result list should remain readable.
+Feedback can improve future expansion.
+Simple controls reduce confusion.

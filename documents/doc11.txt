@@ -1,1 +1,50 @@
-Natural language processing helps software work with human language. A text processing pipeline may include tokenization, normalization, named entity recognition, and information extraction. Classification systems assign categories to documents, while sentiment analysis estimates opinions in reviews. Search applications use language models to understand a query and find relevant passages. Training data and evaluation examples help measure whether a model works well. A corpus with clear labels supports supervised learning. Careful preprocessing improves both machine learning features and information retrieval results.
+Language processing
+Natural language processing helps software work with human text.
+A language pipeline can start with document loading.
+Tokenization converts a sentence into individual word units.
+Normalization makes related spellings easier to compare.
+Sentence splitting can preserve useful text boundaries.
+Language detection can select suitable preprocessing rules.
+A named entity recognizer finds people and places.
+Information extraction identifies facts within a passage.
+Text classification assigns documents to topic labels.
+Training data
+Supervised models learn from labelled text examples.
+A label can describe topic, tone, or intent.
+Training examples should cover common language patterns.
+Rare categories may need additional examples.
+Data quality affects downstream model behavior.
+Duplicates can distort training and evaluation.
+Private text requires careful handling.
+Annotators should follow consistent guidelines.
+A held out set supports fair evaluation.
+Applications in retrieval
+Search engines can use language analysis for query understanding.
+A system can recognize entities inside a question.
+Synonyms can help match different word choices.
+Classification can route a query to a subject collection.
+Passage retrieval can return a focused answer.
+Translation tools can bridge between languages.
+Sentiment signals can organize customer feedback.
+Summarization can help readers scan long documents.
+Information extraction can index names and dates.
+Evaluation
+Precision measures correct results among retrieved items.
+Recall measures how many relevant items were found.
+A confusion matrix records classification outcomes.
+F1 combines precision and recall.
+Test examples should represent real usage.
+Human review can identify unclear predictions.
+Metrics should reflect the application goal.
+A single score cannot describe every error.
+Results should be compared with a simple baseline.
+Ethics and maintenance
+Language data can contain social bias.
+A model may perform differently across groups.
+Personal data should not be indexed without permission.
+Users need clear descriptions of automated decisions.
+Monitoring can reveal changes in incoming language.
+Model updates should be tested before release.
+Feedback can identify outdated vocabulary.
+Documentation should explain known limitations.
+Responsible design protects readers and authors.

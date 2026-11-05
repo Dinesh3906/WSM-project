@@ -1,9 +1,50 @@
-Python is a modern high-level programming language widely used in computer science and software education.
-Python emphasizes code readability and clear syntax, making computation and algorithm development straightforward.
-Developers use Python for building web applications, data analysis scripts, and rapid prototyping.
-Unlike a traditional compiled language with a standalone compiler, Python code is typically interpreted or bytecode-compiled.
-Python supports multiple paradigms including procedural, object-oriented, and functional programming.
-The language provides extensive standard libraries for text processing, network communication, and file system manipulation.
-Modern search engines and information retrieval systems often use Python for backend processing and data mining.
-In computer education, Python has become the primary language for introducing fundamental programming concepts and data structures.
-
+Python is a general purpose programming language.
+Its syntax favors readable code and clear indentation.
+Variables give useful names to stored values.
+Integers and decimals represent numeric data.
+Strings store text for later processing.
+Booleans express true and false conditions.
+Lists keep ordered collections of changing values.
+Tuples keep ordered values that should stay fixed.
+Dictionaries map keys to useful values.
+Sets store unique items for membership checks.
+Functions package steps into reusable operations.
+Parameters let a function receive different inputs.
+Return values pass computed results to another step.
+Modules group related code in separate files.
+Imports let a project reuse standard libraries.
+Classes describe objects with related data and behavior.
+Methods define actions that objects can perform.
+Exceptions help programs report unexpected conditions.
+Try and except blocks handle recoverable errors.
+A clear error message helps explain a failure.
+A search program can load a text corpus.
+Python file tools read documents one by one.
+Regular expressions can extract tokens from sentences.
+Lowercase conversion makes term matching consistent.
+Lists are useful for storing document tokens.
+Dictionaries can represent an inverted index.
+Sets provide efficient Boolean query operations.
+A posting set records documents for one term.
+Loops process each document in a collection.
+Conditional statements select the correct next action.
+Sorting can place results in a stable order.
+Small helper functions keep modules easy to explain.
+Meaningful names make an algorithm easier to review.
+Comments should clarify intent instead of repeat code.
+The standard library supplies many practical tools.
+Virtual environments isolate dependencies for a project.
+Unit tests compare actual output with expected output.
+A test corpus should contain overlapping vocabulary.
+Debugging starts by reproducing a specific problem.
+Printing a short value can reveal an incorrect step.
+Version control records how source code changes.
+Python can automate repetitive text processing.
+The language is common in data science courses.
+Flask can connect Python code to a browser interface.
+Search results can include filenames and snippets.
+An index reduces repeated scans through every document.
+A query processor can combine term postings.
+A tokenizer should handle punctuation predictably.
+Clear syntax makes algorithms suitable for teaching.
+Students can explain each function during a practical.

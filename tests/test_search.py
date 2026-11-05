@@ -48,6 +48,13 @@ class TestDocumentLoader(unittest.TestCase):
         filenames = [metadata['filename'] for metadata in self.docs.values()]
         self.assertEqual(filenames, [f'doc{number}.txt' for number in range(1, 21)])
 
+    def test_every_document_has_fifty_lines(self):
+        """Each sample text file should contain exactly fifty non-empty lines."""
+        for doc_id, metadata in self.docs.items():
+            lines = metadata['content'].splitlines()
+            self.assertEqual(len(lines), 50, f"{doc_id} should contain exactly 50 lines.")
+            self.assertTrue(all(line.strip() for line in lines), f"{doc_id} has a blank line.")
+
     def test_document_ids_assigned(self):
         """Each document should have a DOC<n> identifier."""
         for doc_id in self.docs:

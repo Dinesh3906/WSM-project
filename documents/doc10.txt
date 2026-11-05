@@ -1,1 +1,50 @@
-Tokenization is an early step in text preprocessing. A tokenizer splits sentences into words, numbers, or other useful units called tokens. Punctuation removal and whitespace cleanup make those units easier to compare. Case folding converts uppercase and lowercase spellings to a common form. The same normalization should be applied to source documents and user queries. A search index built from clean tokens can match words consistently. Some language tools also remove stop words or reduce related word forms to a stem. The chosen pipeline depends on the document collection and retrieval task.
+Tokenization
+Tokenization splits raw text into smaller word units.
+A tokenizer can preserve letters and numbers.
+Whitespace often separates neighboring terms.
+Punctuation may be removed during token extraction.
+A sentence can produce a sequence of tokens.
+Different token rules can produce different vocabularies.
+Hyphenated expressions need a consistent policy.
+Apostrophes may appear inside names or contractions.
+Unicode text can contain many alphabetic scripts.
+Case normalization
+Case folding maps upper and lower case together.
+Python and PYTHON should retrieve the same documents.
+Lowercase terms simplify index lookup.
+Normalization should not discard meaningful distinctions.
+Whitespace trimming removes accidental padding.
+Repeated spaces can be collapsed safely.
+Queries should use the same normalization pipeline.
+A consistent pipeline improves matching behavior.
+The chosen rules should be documented.
+Punctuation handling
+Punctuation often separates sentence boundaries.
+Commas and periods should not become index terms.
+A decimal number may need its period preserved.
+File names can contain punctuation outside the corpus text.
+Regular expressions can extract valid term sequences.
+Special symbols need deliberate treatment.
+Wildcard stars must be preserved in queries.
+Normal tokenization should not erase wildcard syntax.
+Escaped patterns help prevent accidental regular expressions.
+Stop words and stemming
+Stop words are frequent terms with limited meaning.
+Removing stop words can shrink an index.
+A phrase query may still need common words.
+Stemming maps related word forms to a shared root.
+Lemmatization uses vocabulary and grammar to find a base form.
+Preprocessing choices affect recall and precision.
+The same policy should be applied to every document.
+Queries must be processed with identical rules.
+A small corpus can demonstrate these tradeoffs.
+Pipeline validation
+A sample input should have known expected tokens.
+Empty text should return an empty token list.
+Numeric tokens may remain searchable.
+Mixed case should normalize consistently.
+A token count can help diagnose preprocessing.
+An index build should report its vocabulary size.
+The pipeline should handle empty files gracefully.
+Invalid encodings should not stop every document load.
+A stable token order supports repeatable tests.

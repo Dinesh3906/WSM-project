@@ -1,1 +1,50 @@
-Search ranking orders documents by relevance to a user query. A retrieval model compares query terms with document terms. Term frequency indicates how often a term occurs, while inverse document frequency favors words that distinguish one document from the corpus. TF-IDF weights combine these signals. PageRank uses links in a graph of web pages to estimate authority. Modern search engines combine text relevance, link quality, freshness, and user context. Clear ranking metrics help developers evaluate whether the best results appear first.
+Relevance signals
+Search ranking orders documents for a user query.
+A score estimates how well a page answers the query.
+Term frequency counts occurrences of a query word.
+Document frequency counts pages containing that word.
+Rare terms can distinguish one page from another.
+TF-IDF combines local and collection frequency signals.
+Title terms can carry useful relevance information.
+A short page may still answer a query well.
+Freshness can matter for time sensitive topics.
+Term scoring
+A query is normalized before its terms are scored.
+Each matching term may contribute to a total score.
+Repeated terms can signal a major document topic.
+Very common terms carry less distinguishing value.
+Field weights can treat titles separately from body text.
+Length normalization reduces bias toward longer documents.
+Phrase matching can reward adjacent query terms.
+A scoring model should be easy to evaluate.
+Small examples make ranking calculations understandable.
+Link analysis
+A web page can be represented as a graph vertex.
+Hyperlinks create directed graph edges between pages.
+PageRank estimates authority from incoming links.
+A link from a trusted page may be valuable.
+Link popularity alone cannot prove topical relevance.
+New pages may have few incoming links.
+Spam links can manipulate a ranking score.
+Link signals should be combined with text evidence.
+Graph structure changes as the web grows.
+Ranking pipeline
+The engine first retrieves candidate documents from postings.
+Candidates receive text and link based scores.
+Filters can remove duplicate or unsafe pages.
+A tie breaker creates a repeatable order.
+The highest scoring items appear near the top.
+Snippets help explain why a result matched.
+A user can scan filenames and descriptions quickly.
+Caching can accelerate repeated queries.
+Search latency should remain low under demand.
+Evaluation and trust
+Relevance judgments provide examples for evaluation.
+Precision measures relevant documents among returned items.
+Recall measures relevant documents found in the collection.
+Ranking metrics consider the order of results.
+A benchmark query set should cover several topics.
+Human feedback can reveal unexpected poor matches.
+Evaluation should use held out examples.
+Transparent ranking evidence can aid debugging.
+Regular review keeps results useful as data changes.

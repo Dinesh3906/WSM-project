@@ -29,8 +29,77 @@ body {
 
 /* ---------- Header ---------- */
 .header {
-    text-align: center;
     margin-bottom: 28px;
+}
+
+.header-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.header-brand {
+    flex: 1;
+    min-width: 0;
+}
+
+.student-profile-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    padding: 12px 15px;
+    border: 1px solid #dce3ed;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(25, 45, 75, 0.06);
+}
+
+.student-avatar {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: linear-gradient(145deg, #315de7, #203eae);
+    font-weight: 700;
+}
+
+.student-meta {
+    text-align: left;
+}
+
+.student-name {
+    margin-bottom: 5px;
+    color: #16213e;
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.student-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.badge {
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.badge-id {
+    color: #2449c3;
+    background: #edf1ff;
+}
+
+.badge-branch {
+    color: #286b54;
+    background: #e9f6ef;
 }
 
 .header h1 {
@@ -299,6 +368,20 @@ body {
 
 /* ---------- Responsive ---------- */
 @media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .student-profile-badge {
+        align-self: flex-end;
+        max-width: 100%;
+    }
+
+    .student-name {
+        white-space: normal;
+    }
+
     .header h1 {
         font-size: 1.45rem;
     }
